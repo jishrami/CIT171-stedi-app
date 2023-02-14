@@ -2,7 +2,7 @@
 #
 .DS_Store
 
-#Ignore file
+# Ignore file
 package-lock.json
 
 # Xcode
