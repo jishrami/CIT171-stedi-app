@@ -56,6 +56,7 @@ return(
   } else if(loggedInState==loggedInStates.NOT_LOGGED_IN){
     return (
       <View>
+        <Text style={styles.title}>Welcome Back</Text>
         <TextInput 
           value={phoneNumber}
           onChangeText={setPhoneNumber}
@@ -154,5 +155,9 @@ return(
        alignItems: "center",
        backgroundColor: "#DDDDDD",
        padding: 10
-     }    
+     }    ,
+     title:{
+      textAlign: "center",
+      marginTop: 20,
+     }
  })
