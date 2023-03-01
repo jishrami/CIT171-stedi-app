@@ -158,6 +158,9 @@ return(
      }    ,
      title:{
       textAlign: "center",
-      marginTop: 20,
+      marginTop: 30,
+      fontSize:45,
+      color:'#A0CE4E',
+      fontWeight:'bold'
      }
  })
