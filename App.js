@@ -6,7 +6,7 @@ import OnboardingScreen from './screens/OnboardingScreen';
 import Home from './screens/Home';
 import { NavigationContainer } from '@react-navigation/native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-
+import * as localAuthentication from 'expo-local-authentication'
 
 
 
@@ -23,6 +23,19 @@ const App = () =>{
   const [phoneNumber,setPhoneNumber] = React.useState("");
   const [oneTimePassword, setOneTimePassword] = React.useState("");
   const [homeTodayScore, setHomeTodayScore] = React.useState(0);
+  const [isBiometricSupported, setIsBiometricSupported] = React.useState(false);
+  const [isBiometricEnrolled, setIsBiometricEnrolled] =React.useState(false);
+
+  useEffect(()=>{
+    (async() => {
+      const compatible = await localAuthentication.hasHardwareAsync();
+      console.log("compatible",compatible);
+      setIsBiometricSupported(compatible);
+
+      const enrolled = await localAuthentication.isEnrolledAsync();
+      setIsBiometricEnrolled(enrolled);
+    })();
+  });
 
   useEffect(()=>{//this is code that has to run before we show app screen
    const getSessionToken = async()=>{
@@ -57,6 +70,10 @@ return(
     return (
       <View>
         <Text style={styles.title}>Welcome Back</Text>
+        <Text>{isBiometricSupported ? 'Your device is compatible with biometrics' : 'Your device is not compatible with biometrics'}
+        </Text>
+        <Text> {isBiometricEnrolled ? 'You have biometrics enabled' : 'You do not have biometrics enabled'}
+        </Text>
         <TextInput 
           value={phoneNumber}
           onChangeText={setPhoneNumber}
