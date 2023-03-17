@@ -82,6 +82,18 @@ return(
           placeholder='Cell Phone'>          
         </TextInput>
         <Button
+        title="Biometric Authentication"
+        style={styles.button}
+        onPress={async () => {
+          const biometricAuth = await localAuthentication.authenticateAsync({
+          promptMessage: 'Login with Biometrics',
+          disableDeviceFallback: true,
+          cancelLabel: "Cancel"
+          })
+          console.log("Biometric Auth",biometricAuth)
+          }}
+        />
+        <Button
           title='Send'
           style={styles.button}
           onPress={async ()=>{
