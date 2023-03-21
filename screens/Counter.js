@@ -148,6 +148,20 @@ setScore(scoreObject.score);
  }
 }
 
+/Add spotter button/
+ 
+const myCustomerShare = async() =>{
+  const shareOptions = {
+    message: 'https://stedibalance.com'
+  }
+  try{
+    const shareResponse = await Share.share(shareOptions)
+    console.log(shareResponse);
+    }
+    catch(error){
+console.log('Error', error)
+    }
+  }
 
 //outcome of the saving data
 const outcome = () =>{
