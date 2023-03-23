@@ -344,7 +344,7 @@ elevation: 4}}>
     >
       <Text>{subscription ? 'Stop' : 'GO'}</Text>
      </TouchableOpacity>
-     <Button onPress={mySpotterShare} style={styles.button}></Button>
+     <TouchableOpacity onPress={mySpotterShare} style={styles.button}><Text>Add Spotter</Text></TouchableOpacity>
      </CardContent>
      <ProgressBar progress={(stepCount * 0.50/30) + (completionCount * 0.50)} width={300} height={25} color={'#A0CE4E'} style={styles.bar}/>
 </Card>
@@ -459,7 +459,7 @@ const styles = StyleSheet.create({
     padding: 10,
     borderRadius: 100,
     backgroundColor: '#A0CE4E',
-    marginLeft:50
+    marginLeft:50,
   },
   text:{
 textAlign: 'center',
